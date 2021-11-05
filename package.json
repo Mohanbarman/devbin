@@ -1,0 +1,13 @@
+{
+  "name": "devbin",
+  "private": "true",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "typescript": "^4.4.4"
+  }
+}
