@@ -24,4 +24,5 @@ model User {
   lastName  String?
   email     String   @unique
   role      Roles    @default(USER)
+  password  String
 }
