@@ -20,7 +20,8 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prisma:merge": "prisma-merge -b prisma/schema.prisma -s 'prisma/models/*/*.prisma' -o prisma/schema.prisma",
-    "prisma:format": "prisma format --schema prisma/models/**/*.prisma"
+    "prisma:format": "prisma format --schema prisma/models/**/*.prisma",
+    "migrate": "npx prisma migrate dev"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
