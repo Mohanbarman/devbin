@@ -1,9 +1,9 @@
 import { IsEmail, IsNotEmpty } from 'class-validator';
-import { IsEmailExists } from '../../../validators';
+import { IsExists } from '../../../validators';
 
 export class LoginDTO {
   @IsEmail()
-  @IsEmailExists(true, { message: 'Wrong username or password' })
+  @IsExists(false, { modelName: 'user', message: 'Wrong username or password' })
   email: string;
 
   @IsNotEmpty()

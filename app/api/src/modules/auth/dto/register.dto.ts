@@ -5,7 +5,7 @@ import {
   IsString,
   Length,
 } from 'class-validator';
-import { IsEmailExists, Match } from '../../../validators';
+import { IsExists, Match } from '../../../validators';
 
 export class RegisterDTO {
   @IsNotEmpty()
@@ -17,7 +17,7 @@ export class RegisterDTO {
   lastName: string;
 
   @IsEmail()
-  @IsEmailExists()
+  @IsExists(true, { modelName: 'user' })
   email: string;
 
   @IsNotEmpty()
