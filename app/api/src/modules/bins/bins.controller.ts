@@ -19,6 +19,7 @@ export class BinsController {
     @GetUser() user: User,
   ) {
     const bin = await this.binsService.create(data, user);
-    return createResponse(res, new BinTransformer(bin));
+    const transformed = new BinTransformer(bin);
+    return createResponse(res, await transformed.data);
   }
 }
