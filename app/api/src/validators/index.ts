@@ -1,2 +1,2 @@
-export { Match } from './match-validator';
-export { IsEmailExists } from './user-exists-validator';
+export { Match } from './match.validator';
+export { IsExists } from './field-exists.validator';
