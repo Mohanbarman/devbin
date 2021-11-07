@@ -1,5 +1,6 @@
 import { Visibility } from '@prisma/client';
 import { IsNotEmpty, IsOptional, Length, IsEnum } from 'class-validator';
+import { IsExists } from '../../../validators';
 
 export class CreateBinDto {
   @IsNotEmpty()
@@ -22,5 +23,6 @@ export class CreateBinDto {
   visibility: Visibility;
 
   @IsNotEmpty()
+  @IsExists(true, { modelName: 'bin' })
   slug: string;
 }
