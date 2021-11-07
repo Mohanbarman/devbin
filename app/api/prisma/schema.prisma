@@ -15,14 +15,59 @@ enum Roles {
   GUEST
 }
 
+enum Visibility {
+  PUBLIC
+  PRIVATE
+  UNLISTED
+}
+
+enum BinAccessLevel {
+  READ
+  EDIT
+  ADMIN
+}
+
 model User {
-  id        Int      @id @default(autoincrement())
-  uuid      String   @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  firstName String
-  lastName  String?
-  email     String   @unique
-  role      Roles    @default(USER)
-  password  String
+  id            Int             @id @default(autoincrement())
+  uuid          String          @default(uuid())
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  firstName     String
+  lastName      String?
+  email         String          @unique
+  role          Roles           @default(USER)
+  password      String
+  Bins          Bin[]
+  SharedUserBin SharedUserBin[]
+}
+
+model Bin {
+  id            Int             @id @default(autoincrement())
+  uuid          String          @default(uuid())
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  title         String
+  body          String          @db.LongText
+  userId        Int?
+  user          User?           @relation(fields: [userId], references: [id])
+  password      String?
+  lang          String
+  visibility    Visibility      @default(PUBLIC)
+  SharedUserBin SharedUserBin[]
+  slug          String          @unique
+}
+
+model SharedUserBin {
+  id          Int            @id @default(autoincrement())
+  user        User           @relation(fields: [userId], references: [id])
+  bin         Bin            @relation(fields: [binId], references: [id])
+  userId      Int
+  binId       Int
+  accessLevel BinAccessLevel @default(READ)
+}
+
+model sessions {
+  session_id String  @id @db.VarChar(128)
+  expires    Int     @db.UnsignedInt
+  data       String? @db.MediumText
 }
