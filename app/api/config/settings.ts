@@ -6,4 +6,7 @@ export default registerAs('settings', () => ({
   userPasswordSaltRounds: parseInt(
     process.env['USER_PASSWORD_SALT_ROUNDS'] || '10',
   ),
+  binPasswordSaltRounds: parseInt(
+    process.env['BIN_PASSWORD_SALT_ROUNDS'] || '10',
+  ),
 }));

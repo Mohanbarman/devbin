@@ -1,12 +1,12 @@
 import { User } from '@prisma/client';
-import { BaseTransformer } from '../utils/base-transformer';
+import { BaseTransformer } from '../core/base-transformer';
 
 export class UserTransformer extends BaseTransformer {
   constructor(data: User | User[]) {
     super(data);
   }
 
-  transform(data: User): Record<string, any> {
+  async transform(data: User): Promise<Record<string, any>> {
     return {
       id: data.uuid,
       firstName: data.firstName,

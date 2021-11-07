@@ -1,7 +1,8 @@
 export interface ISettingsConfig {
   port: number;
   sessionSecret: string;
-  userPasswordSaltRounds: string;
+  userPasswordSaltRounds: number;
+  binPasswordSaltRounds: number;
 }
 
 export interface IDatabaseConfig {

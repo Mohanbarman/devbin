@@ -5,7 +5,7 @@ import {
   IsString,
   Length,
 } from 'class-validator';
-import { IsEmailExists, Match } from '../../../validation/custom-validators';
+import { IsEmailExists, Match } from '../../../validators';
 
 export class RegisterDTO {
   @IsNotEmpty()
