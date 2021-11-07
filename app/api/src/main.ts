@@ -5,7 +5,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './modules/app.module';
 import { IDatabaseConfig, ISettingsConfig } from './types/config.types';
 import { createSession } from './session-store';
-import { transformExceptionFactory, HttpExceptionFilter } from './validation';
+import { transformExceptionFactory, HttpExceptionFilter } from './core';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
