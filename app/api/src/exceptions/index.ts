@@ -1,1 +1,1 @@
-export { ValidationFailedException } from './validation-failed-exception';
+export { ValidationFailedException } from './validation-failed.exception';
